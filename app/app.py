@@ -2,15 +2,16 @@ from typing import List, Dict
 from flask import Flask
 import mysql.connector
 import json
+import os
 
 app = Flask(__name__)
 
 
 def favorite_colors() -> List[Dict]:
     config = {
-        'user': 'root',
-        'password': 'root',
-        'host': 'db',
+        'user': os.environ.get('user', 'root'),
+        'password': os.environ.get('password', 'root'),
+        'host': os.environ.get('host', 'db'),
         'port': '3306',
         'database': 'knights'
     }
