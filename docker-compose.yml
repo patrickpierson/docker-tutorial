@@ -6,7 +6,12 @@ services:
       - db
     ports:
       - "5000:5000"
-
+  app2:
+    build: ./app2
+    links:
+      - app
+    ports:
+      - "5001:5000"
   db:
     image: mysql:5.7
     ports:
